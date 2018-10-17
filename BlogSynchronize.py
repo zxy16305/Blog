@@ -30,7 +30,7 @@ with socketserver.TCPServer(("", PORT), myHandler) as httpd:
 
 def git_pull():
     os.system("git pull " + git_origins)
-    t = threading.Timer(10, hexo_generate, args=())
+    t = threading.Timer(30, hexo_generate, args=())
     t.start()
 
 
