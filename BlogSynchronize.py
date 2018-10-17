@@ -11,6 +11,18 @@ git_origins = "https://github.com/zxy16305/Blog"
 hexo_current_working_directory = "/root/applications/hexo/"
 
 
+def git_pull():
+    os.system("git pull " + git_origins)
+    # print("git pull")
+    t = threading.Timer(20, hexo_generate)
+    t.start()
+
+
+def hexo_generate():
+    # print("hexo generate")
+    os.system("hexo --cwd " + hexo_current_working_directory + " generate")
+
+
 class myHandler(HTTP.BaseHTTPRequestHandler):
     def do_POST(self):
         if self.path == "/update":
@@ -18,7 +30,7 @@ class myHandler(HTTP.BaseHTTPRequestHandler):
             self.send_response(200)
             self.end_headers()
             self.wfile.write(bytes("OK", encoding="utf-8"))
-            t = threading.Timer(1, git_pull, args=())
+            t = threading.Timer(1, git_pull)
             t.start()
         return
 
@@ -26,13 +38,3 @@ class myHandler(HTTP.BaseHTTPRequestHandler):
 with socketserver.TCPServer(("", PORT), myHandler) as httpd:
     print("com in")
     httpd.serve_forever()
-
-
-def git_pull():
-    os.system("git pull " + git_origins)
-    t = threading.Timer(30, hexo_generate, args=())
-    t.start()
-
-
-def hexo_generate():
-    os.system("hexo --cwd " + hexo_current_working_directory + " generate")
