@@ -9,12 +9,13 @@ PORT = 15622
 Protocol = "HTTP/1.1"
 git_origins = "https://github.com/zxy16305/Blog"
 hexo_current_working_directory = "/root/applications/hexo/"
+git_directory = "/root/applications/hexo/source"
 delay_git = 30
 delay_hexo = 30
 
 
 def git_pull():
-    os.system("git pull " + git_origins)
+    os.system("cd  " + git_directory + " && git pull " + git_origins)
     # print("git pull")
     t = threading.Timer(delay_hexo, hexo_generate)
     t.start()
