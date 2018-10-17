@@ -1,6 +1,7 @@
 import http.server as HTTP
 import socketserver
 import os
+import time
 
 PORT = 15622
 Protocol = "HTTP/1.1"
@@ -15,6 +16,8 @@ class myHandler(HTTP.BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(bytes("OK", encoding="utf-8"))
             os.system("git pull " + git_origins)
+            time.sleep(10)
+            os.system("hexo --cwd " + hexo_current_working_directory + " generate")
         return
 
 
