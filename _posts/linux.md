@@ -18,4 +18,4 @@ tags:
 2. 给脚本执行权限 ,`chmod +x autostart.sh`
 3. 观察`/etc/rc.d/rc.local` 或 `/etc/rc.local`有无执行权限，若没有则加上
 4. 打开 `/etc/rc.d/rc.local` 或 `/etc/rc.local`,末尾添加执行autostart.sh的命令
-> 但是遇到了卡在某个命令的情况
+> 但是遇到了卡在某个命令的情况 , 使用python的子线程
