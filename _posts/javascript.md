@@ -106,6 +106,7 @@ js选择`UglifyjsWebpackPlugin` ,css `mini-css-extract-plugin`，输出文件加
 [个人部署配置](https://github.com/zxy16305/Cesiums/blob/master/webpack.config.js)
 
 ## 坑
+### IE下某些API和chrome不一致
 
 
 
