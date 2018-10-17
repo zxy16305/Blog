@@ -18,8 +18,7 @@ class myHandler(HTTP.BaseHTTPRequestHandler):
             self.send_response(200)
             self.end_headers()
             self.wfile.write(bytes("OK", encoding="utf-8"))
-            os.system("git pull " + git_origins)
-            t = threading.Timer(10, hexo_generate, args=())
+            t = threading.Timer(1, git_pull, args=())
             t.start()
         return
 
@@ -27,6 +26,12 @@ class myHandler(HTTP.BaseHTTPRequestHandler):
 with socketserver.TCPServer(("", PORT), myHandler) as httpd:
     print("com in")
     httpd.serve_forever()
+
+
+def git_pull():
+    os.system("git pull " + git_origins)
+    t = threading.Timer(10, hexo_generate, args=())
+    t.start()
 
 
 def hexo_generate():
