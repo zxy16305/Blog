@@ -2,6 +2,8 @@
 title: matrix 矩阵相关
 date: 2018-10-14 15:36:27
 tags:
+categories:
+-   principle
 ---
 
 矩阵 - 计算机图形学的学习

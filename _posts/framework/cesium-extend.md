@@ -2,6 +2,8 @@
 title: 记一次对cesium的拓展
 date: 2018-08-28 22:18:46
 tags: 天下代码一大抄
+categories:
+-   framework
 ---
 
 对cesium绘画拓展的再次拓展

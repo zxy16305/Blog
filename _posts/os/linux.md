@@ -2,6 +2,8 @@
 title: linux
 date: 2018-09-17 13:06:27
 tags:
+categories:
+-   os
 ---
 记录一些简单的linux
 <!--more-->

@@ -2,6 +2,8 @@
 title: 收藏学习
 date: 2018-10-07 21:42:42
 tags:
+categories:
+-   学习
 ---
 
 用于收集github上介绍类的项目（markdown），或是个人常用的工具
