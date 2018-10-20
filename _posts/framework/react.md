@@ -2,6 +2,8 @@
 title: react
 date: 2018-10-04 07:57:47
 tags: 学习 记录
+categories:
+-   framework
 ---
 
 学一下 demo写一年

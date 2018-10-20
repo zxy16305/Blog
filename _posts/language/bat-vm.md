@@ -2,6 +2,8 @@
 title: bat-vm
 date: 2018-09-07 10:33:27
 tags:
+categories:
+-   language
 ---
 有一个需要虚拟机随系统开关的需求
 > [VMware怎么开机自启动,关机自动挂起虚拟机](http://blog.51cto.com/singoe/1972417)

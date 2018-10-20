@@ -2,6 +2,8 @@
 title: scss
 date: 2018-09-21 22:26:30
 tags:
+categories:
+-   language
 ---
 
 出于需要用css来绘制带角的对话框，如果用纯css来写，重复量太多，维护性较低。

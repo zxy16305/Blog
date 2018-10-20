@@ -2,6 +2,8 @@
 title: docker
 date: 2018-08-31 12:40:01
 tags:
+categories:
+-   other
 ---
 
 > 不同的现场可能有不同的数据库配置,此处使用docker

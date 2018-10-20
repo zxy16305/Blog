@@ -2,6 +2,8 @@
 title: 手写sql技巧记录
 date: 2018-09-02 13:47:08
 tags: 
+categories:
+-   language
 ---
 
 > 但我并不推荐手写sql，当你交接给别人后就会知道为什么......

@@ -2,6 +2,8 @@
 title: javascript
 date: 2018-09-16 13:06:27
 tags:
+categories:
+-   language
 ---
 记录在查阅Cesium源码时的一些体会
 <!--more-->
