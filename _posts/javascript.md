@@ -107,6 +107,18 @@ js选择`UglifyjsWebpackPlugin` ,css `mini-css-extract-plugin`，输出文件加
 
 ## 坑
 ### IE下某些API和chrome不一致
+### UglifyJsPlugin改变了构造器名称的问题
+增加配置`keep_fnames`,不压缩函数的名字,即
+```javascript
+ new UglifyJsPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: true ,// set to true if you want JS source maps
+                uglifyOptions:{
+                    keep_fnames: true
+                }
+            })
+```
 
 
 
