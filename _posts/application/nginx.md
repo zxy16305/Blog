@@ -102,3 +102,7 @@ windows下比较特殊
           }
 ```
 注意此处的 `3D_Tiles` 为 `D:/githubResp/tiles/` 下的一个文件夹， 访问`http://localhost:8080/3D_Tiles/tileset.json` , 相当于访问 `D:\githubResp\tiles\3D_Tiles\tileset.json`
+
+# 小坑
+## 感觉访问特别慢
+此时需要看下配置文件中是否有出现`localhost`字样，nginx会把它解析成IPv6，从而访问不到对应的资源。将所有`localhost`改成`127.0.0.1`或本机局域网ip即可
