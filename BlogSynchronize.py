@@ -14,6 +14,11 @@ delay_git = 2
 delay_hexo = 20
 
 
+def git_and_hexo():
+    os.system(
+        "cd  " + git_directory + " && git pull " + git_origins + " && hexo --cwd " + hexo_current_working_directory + " generate")
+
+
 def git_pull():
     os.system("cd  " + git_directory + " && git pull " + git_origins)
     # print("git pull")
@@ -33,7 +38,7 @@ class myHandler(HTTP.BaseHTTPRequestHandler):
             self.send_response(200)
             self.end_headers()
             self.wfile.write(bytes("OK", encoding="utf-8"))
-            t = threading.Timer(delay_git, git_pull)
+            t = threading.Timer(delay_git, git_and_hexo)
             t.start()
         return
 
