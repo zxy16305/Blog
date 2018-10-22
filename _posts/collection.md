@@ -15,6 +15,10 @@ categories:
 #### [java8-tutorial](https://github.com/winterbe/java8-tutorial)
 详细介绍java8的特性，有代码演示
 
+## Javascript
+### nodejs
+#### [全网最贴心 webpack 系列教程和配套代码](https://www.v2ex.com/t/499178)
+     
 # Project
 ## Alibaba
 ### [arthas](https://github.com/alibaba/arthas)
