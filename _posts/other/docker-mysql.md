@@ -21,7 +21,9 @@ docker pull cytopia/mysql-5.6
 
 ## 启动容器
 ```
-docker run -i \
+docker run \
+    --name custom-container-name \
+     -i \
     -p 0.0.0.0:3308:3306 \
     -e MYSQL_ROOT_PASSWORD=my-secret-pw \
     -t cytopia/mysql-5.6
@@ -45,7 +47,9 @@ flush privileges;
 ```
 # docker
 ## docker常用命令
-### `docker update –restart=always <CONTAINER ID>`
+### `docker update --restart=always <CONTAINER ID>`
 修改某个已创建的container的属性
 ### `docker exec -it <CONTAINER ID> /bin/bash`
 进入某个容器bash
+### `docker ps -a`
+查看所有容器 ，(居然不是`docker container`开头的)
