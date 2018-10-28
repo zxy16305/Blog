@@ -107,6 +107,21 @@ js选择`UglifyjsWebpackPlugin` ,css `mini-css-extract-plugin`，输出文件加
 
 [个人部署配置](https://github.com/zxy16305/Cesiums/blob/master/webpack.config.js)
 
+# 使用webpack+es6+less编写项目
+js还好，特别是css，简直不可维护，使用这两种编写主要还是看重他们的模块化功能
+## 目录结构
+目录使用类似react默认目录的结构，模块->文件类型
+## 编译转码
+库文件正常引入，需要打包的是项目的代码。html直接引入编译后的内容，每次改完代码等编译一遍，大概3-4秒，还能接受吧。（然而是个小项目）项目大了可以加速下webpack打包。
+### es6
+在webpack配置文件中指定多个入口，拼接尝试一下，其他和打包单个没有区别。把html当成配置文件，js强行写的oop。
+### less
+less的入口由@import组建
+## 遇到的问题
+### less-watch在子less中改变时，不回去更新父文件
+每次都手动开一下。。
+
+
 ## 坑
 ### IE下某些API和chrome不一致
 ### UglifyJsPlugin改变了构造器名称的问题
