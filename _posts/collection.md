@@ -11,6 +11,10 @@ categories:
 <!--more-->
 # Language
 ## JAVA
+### JAVA-GUIDE
+#### [Snailclimb/JavaGuide](https://github.com/Snailclimb/JavaGuide)
+涉及到各方面的java知识
+
 ### JAVA8
 #### [java8-tutorial](https://github.com/winterbe/java8-tutorial)
 详细介绍java8的特性，有代码演示
@@ -18,6 +22,9 @@ categories:
 ## Javascript
 ### nodejs
 #### [全网最贴心 webpack 系列教程和配套代码](https://www.v2ex.com/t/499178)
+### code-style
+#### [lin-123/javascript](https://github.com/airbnb/javascript)
+介绍各规范js下的编程风格，有各国的翻译版本，70k star
      
 # Project
 ## Alibaba
