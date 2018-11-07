@@ -186,3 +186,5 @@ public class DbInnerScfmConfig {
 ### @ManyToMany
 insert生效需要两方同时包含对方
 
+# 打包到war，完美调试
+> [正确打包Spring-Boot到war](https://www.hiczp.com/2018/10/16/java/%E6%AD%A3%E7%A1%AE%E6%89%93%E5%8C%85Spring-Boot%E5%88%B0war/)
