@@ -12,4 +12,8 @@ some redux concepts
 # introduction
 ## motivation
 ### flex
-![](.redux_images\3ca5ebb9.png)
+![](http://pi818b3ug.bkt.clouddn.com/markdown-image-paste-1542262419855)
+
+### pure function
+- given the same input, always return then same output
+- produces noe side effects

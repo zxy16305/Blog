@@ -20,7 +20,7 @@ categories:
 > [Ubuntu 16.04 开机默认命令行界面](https://wiki.zthxxx.me/wiki/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/Linux/Ubuntu/Ubuntu-16-%E5%BC%80%E6%9C%BA%E9%BB%98%E8%AE%A4%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2/)
 
 ## 虚拟机 无法打开内核设备
-cmd输入
+cmd输入（powershell下连接符不一样）
 ```
 net start vmci && net start vmx86 && net start VMnetuserif && sc config vmci=auto && sc config vmx86=auto && sc config VMnetuserif=auto
 ```

@@ -22,6 +22,7 @@ categories:
 ## Javascript
 ### nodejs
 #### [全网最贴心 webpack 系列教程和配套代码](https://www.v2ex.com/t/499178)
+#### [node-fs-extra: extra methods for the fs object like copy(), remove(), mkdirs()](https://github.com/jprichardson/node-fs-extra)
 ### code-style
 #### [lin-123/javascript](https://github.com/airbnb/javascript)
 介绍各规范js下的编程风格，有各国的翻译版本，70k star
