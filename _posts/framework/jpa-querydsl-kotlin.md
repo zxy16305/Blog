@@ -17,6 +17,7 @@ kotlin简单的看作是java的工具类就可以了，目前用的比较多的�
 强类型的自然语言的方式描述一个sql。
 
 使用是会通过apt自动构建相应的QEntity
+
 ```kotlin
      val feeTravelEntity = QFeeTravelEntity.feeTravelEntity
      val projectEntity = QProjectEntity.projectEntity
@@ -29,7 +30,8 @@ kotlin简单的看作是java的工具类就可以了，目前用的比较多的�
              .on(projectEntity.id.eq(
                      feeTravelEntity.projectId
              )).fetch()
-``` 
+```
+
 ## gradle
 类似于maven的构建工具，因为maven中配置插件看得头大，故转到gradle
 
