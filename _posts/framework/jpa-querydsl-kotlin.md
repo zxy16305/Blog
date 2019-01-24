@@ -110,10 +110,20 @@ fun Pageable.change(pageNum: Int? = this.pageNumber, pageSize: Int? = this.pageS
 }
 ```
 此处兼容原生pageable和项目迁移前的字段，sort使用pageable接受（还好原先没有加入sort、不然就蛋疼了）
+
+此处sort需要用 `SortDefault`设定默认值, 直接写在 `PageableDefault`里的话，不能定义多个排序
+
+这里常犯的一个错误是，直接在PageableDefault里的sort数组里写前端传入的参数，比如 ~~`@PageableDefault(size = 10, page = 0,sort=[ "id,asc", "name,desc" ])`~~
+
 ```kotlin
     //实验jpa原生page传入的可行性
     @GetMapping("pageable")
-    public fun testPageIn(@PageableDefault(size = 10, page = 0, sort = ["gmtCreate,desc", "id,desc"]) pageable: Pageable,
+    public fun testPageIn(@PageableDefault(size = 10, page = 0)
+                          @SortDefault.SortDefaults(value = [
+                              SortDefault(value = ["gmtCreate"],direction = Sort.Direction.DESC),
+                              SortDefault(value = ["id"],direction = Sort.Direction.DESC)
+                          ])
+                          pageable: Pageable,
                           pageNum: Int?, pageSize: Int?, startTime: Date?, endTime: Date?): Pageable {
         return pageable.change(pageNum, pageSize)
     }
@@ -129,6 +139,57 @@ fun PageImpl<out Any>.toAPIPageJson(): APIPageJson<out Any> {
 ```kotlin
 //...
 return pageImpl.toAPIPageJson()
+```
+
+## 默认生成项目的一些小问题
+### ids for this class must be manually assigned before calling save()
+jpa2生成的entity默认没有带上主键生成策略，添加 `@GeneratedValue(strategy = GenerationType.IDENTITY)`即可
+
+另外kotlin的entity注意加到get方法上 
+```kotlin
+    @get:Id
+    @get:Column(name = "id")
+    @get:GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Int? = null
+```
+
+### controller返回date为时间戳
+方法有很多，这里配置messageConverter
+```kotlin
+@Configuration
+@EnableWebMvc
+class WebConfig(
+        private val authInterceptor: AuthInterceptor
+) : WebMvcConfigurer {
+    //...
+
+    //定义时间格式转换器
+    @Bean
+    fun jackson2HttpMessageConverter(): MappingJackson2HttpMessageConverter {
+        val converter = MappingJackson2HttpMessageConverter()
+        val mapper = ObjectMapper()
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+        mapper.dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+        converter.objectMapper = mapper
+        return converter
+    }
+
+    override fun configureMessageConverters(converters: MutableList<HttpMessageConverter<*>>) {
+        converters.add(jackson2HttpMessageConverter())
+        super.configureMessageConverters(converters)
+    }
+}
+```
+
+### 表单传入Date报错不能cast
+使用 `InitBinder`
+```kotlin
+    @InitBinder
+    protected fun initBinder(binder: WebDataBinder) {
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:dd")
+        dateFormat.isLenient = false
+        binder.registerCustomEditor(Date::class.java, CustomDateEditor(dateFormat, false))
+    }
 ```
 
 # ...持续更新
