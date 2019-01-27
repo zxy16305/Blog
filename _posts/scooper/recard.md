@@ -22,3 +22,4 @@ categories:
 # 后台
 ## java
 ### kotlin下lombok不工作
+idea apt默认关闭，打开就好。 setting 搜索 `processors`
