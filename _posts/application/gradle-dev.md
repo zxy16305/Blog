@@ -248,3 +248,104 @@ publishing {
 ```
 
 ## 执行 task publish
+
+## 全部配置
+```groovy
+plugins {
+    id 'groovy'
+    id 'java'
+//    id 'com.gradle.plugin-publish' version '0.10.0'
+//    id 'maven'
+    id 'maven-publish' //该插件可以将打包的jar发送到maven库
+    id 'java-gradle-plugin'
+}
+
+group 'cn.com.scooper'
+version '1.0.18-SNAPSHOT'
+
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven {
+        url = 'http://192.168.103.133:8080/repository/scooper-trial/'
+        credentials {
+            username scooperTrialUser
+            password scooperTrialPwd
+        }
+    }
+}
+
+dependencies {
+//    compile 'org.codehaus.groovy:groovy-all:2.3.11'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.8.1'
+
+    implementation localGroovy()
+    implementation gradleApi()
+}
+
+gradlePlugin {
+    plugins {
+        ScooperPackPlugin {
+            id = "scooper.pack"
+            implementationClass = 'cn.com.scooper.packplugin.MainPlugin'
+        }
+
+    }
+}
+
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
+
+
+artifacts {
+    archives jar
+    archives sourcesJar
+}
+
+
+publishing {
+    publications {
+        plugin(MavenPublication) {
+//            from components.java
+            group project.group
+            artifactId project.rootProject.name
+            version project.version
+
+
+            artifact jar
+            artifact sourcesJar
+        
+        }
+
+    }
+    repositories {
+        maven {
+            url = 'http://192.168.103.133:8080/repository/scooper-trial/'
+            credentials {
+                username scooperTrialUser
+                password scooperTrialPwd
+            }
+        }
+    }
+
+}
+
+//uploadArchives {
+//    repositories.mavenDeployer {
+//        repository(url: 'http://192.168.103.133:8080/repository/scooper-trial/') {// 仓库地址
+//// 这里配置上传账户的用户名和密码
+//            authentication(userName: scooperTrialUser, password: scooperTrialPwd)
+//        }
+//        pom.version = project.version
+//        pom.groupId = project.group
+//        pom.artifactId = project.rootProject.name
+//    }
+//}
+```
