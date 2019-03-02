@@ -51,3 +51,8 @@ use_compression = true
 ### socks5
 socks5的配置也如上所示，连接时配置socks5-server为服务器ip，端口为[socks5]的remote_port
 相关工具推荐 `profixier`
+
+## 客户端写入windows service
+使用nssm ， nssm install frpc，按照提示写入path、startup directory、argument
+
+## 主板BIOS 打开AC BACK功能
