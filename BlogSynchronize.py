@@ -9,7 +9,7 @@ PORT = 15622
 Protocol = "HTTP/1.1"
 git_origins = "https://github.com/zxy16305/Blog"
 hexo_current_working_directory = "/root/applications/hexo/"
-git_directory = "/root/applications/hexo/source"
+git_directory = "/root/applications/hexo/"
 delay_git = 2
 delay_hexo = 20
 

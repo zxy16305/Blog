@@ -1,0 +1,6 @@
+RewriteEngine On
+
+RewriteRule	update/?$	/update.php		[END]
+
+RewriteCond	%{REQUEST_URI}	!public/
+RewriteRule	^		/public%{REQUEST_URI}	[END]
