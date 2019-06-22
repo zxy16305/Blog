@@ -36,6 +36,10 @@ categories:
 
 其中 `port` 指使用的端口，多进程需要手动指定
 
+### 回传返回值
+`.\\bin\\jmeter -Dserver_port={port} -s -j jmeter-server-{port}.log -Jmode=Standard`
+
+
 ## 启动本地GUI
 `.\\bin\\jmeter.bat \"-Jremote_hosts={remote_ports}\"`
 其中 `remote_ports` 为所有本地port.join(",")
