@@ -21,7 +21,9 @@
   {% endif %}
 </div>
 
-<div><a href="http://www.beian.miit.gov.cn/">浙ICP备17035797号</a></div>
+{% if theme.footer.recordNumber %}
+  <div><a href="http://www.beian.miit.gov.cn/">{{ theme.footer.recordNumber }}</a></div>
+{% endif %}
 
 {% if theme.footer.powered %}
   <div class="powered-by">{#

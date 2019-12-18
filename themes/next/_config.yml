@@ -55,6 +55,8 @@ footer:
   # -------------------------------------------------------------
   # Hexo link (Powered by Hexo).
   powered: true
+  # record number
+  recordNumber: 浙ICP备17035797号
 
   theme:
     # Theme & scheme info link (Theme - NexT.scheme).
