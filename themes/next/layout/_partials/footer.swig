@@ -21,10 +21,6 @@
   {% endif %}
 </div>
 
-{% if theme.footer.recordNumber %}
-  <div><a href="http://www.beian.miit.gov.cn/">{{ theme.footer.recordNumber }}</a></div>
-{% endif %}
-
 {% if theme.footer.powered %}
   <div class="powered-by">{#
   #}{{ __('footer.powered', '<a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a>') }}{#
@@ -48,4 +44,8 @@
   <div class="footer-custom">{#
   #}{{ theme.footer.custom_text }}{#
 #}</div>
+{% endif %}
+
+{% if theme.footer.recordNumber %}
+  <div><a href="http://www.beian.miit.gov.cn/">{{ theme.footer.recordNumber }}</a></div>
 {% endif %}
