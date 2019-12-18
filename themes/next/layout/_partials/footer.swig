@@ -21,6 +21,8 @@
   {% endif %}
 </div>
 
+<a href="http://www.beian.miit.gov.cn/">浙ICP备17035797号-1</a>
+
 {% if theme.footer.powered %}
   <div class="powered-by">{#
   #}{{ __('footer.powered', '<a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a>') }}{#
