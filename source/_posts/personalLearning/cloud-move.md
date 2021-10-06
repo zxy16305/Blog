@@ -44,7 +44,47 @@ services:
 ## springboot
 springboot 之前使用 executable jar + service 的方式管理启停，此处也改为 docker 管理
 
-// TODO
+```dockerfile
+FROM openjdk:8-jdk-slim
+COPY bill-manager.jar /
+ENTRYPOINT ["java", "-jar","/bill-manager.jar"]
+```
+
+```yaml
+version: '3.1'
+services:
+  bill-manager:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    environment:
+      - JAVA_OPTS=-Xmx250m
+    ports:
+      - "9988:9988"
+    restart: unless-stopped
+    container_name: bill-manager
+    image: bill-manager
+    volumes:
+      - "./application.properties:/application.properties"
+      - "./localfile:/localfile"
+      - "./logs:/logs"
+```
 
 ## mysql
 mysql 之前是 docker 管理，但没有用数据卷，这里补上
+
+```yaml
+version: '3.1'
+services:
+  mysql:
+    image: mysql:5.7.35
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpw
+    volumes:
+      - "./data:/var/lib/mysql"
+      - "./conf:/etc/mysql/conf.d"
+```
