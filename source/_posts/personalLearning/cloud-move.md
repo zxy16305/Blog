@@ -42,7 +42,9 @@ services:
 ```
 
 ## springboot
-springboot 之前使用 executable jar + service 的方式管理启停，此处也改为 docker 管理
+springboot 之前使用 executable jar + service 的方式管理启停，此处也改为 docker 管理。
+
+由于开发环境和部署端不在同一个环境，所以没有使用自带的 docker 镜像打包功能。
 
 ```dockerfile
 FROM openjdk:8-jdk-slim
