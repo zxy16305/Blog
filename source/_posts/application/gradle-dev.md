@@ -53,7 +53,7 @@ gradle插件编写 && 上传 && 使用
         repositories.mavenDeployer {
             repository(url: 'http://192.168.103.133:8080/repository/scooper-trial/') {// 仓库地址
 // 这里配置上传账户的用户名和密码
-                authentication(userName: scooperTrialUser, password: scooperTrialPwd)
+                authentication(userName: scooperTrialUser, password: ******)
             }
             
             pom.version = project.version
@@ -181,7 +181,7 @@ subprojects {
         repositories.mavenDeployer {
             repository(url: 'http://192.168.103.133:8080/repository/scooper-trial/') {// 仓库地址
 // 这里配置上传账户的用户名和密码
-                authentication(userName: scooperTrialUser, password: scooperTrialPwd)
+                authentication(userName: scooperTrialUser, password: ******)
             }
             
             pom.version = project.version
@@ -240,7 +240,7 @@ publishing {
             url = 'http://192.168.103.133:8080/repository/scooper-trial/'
             credentials {
                 username scooperTrialUser
-                password scooperTrialPwd
+                password ******
             }
         }
     }
@@ -272,7 +272,7 @@ repositories {
         url = 'http://192.168.103.133:8080/repository/scooper-trial/'
         credentials {
             username scooperTrialUser
-            password scooperTrialPwd
+            password ******
         }
     }
 }
@@ -330,7 +330,7 @@ publishing {
             url = 'http://192.168.103.133:8080/repository/scooper-trial/'
             credentials {
                 username scooperTrialUser
-                password scooperTrialPwd
+                password ******
             }
         }
     }
@@ -341,7 +341,7 @@ publishing {
 //    repositories.mavenDeployer {
 //        repository(url: 'http://192.168.103.133:8080/repository/scooper-trial/') {// 仓库地址
 //// 这里配置上传账户的用户名和密码
-//            authentication(userName: scooperTrialUser, password: scooperTrialPwd)
+//            authentication(userName: scooperTrialUser, password: ******)
 //        }
 //        pom.version = project.version
 //        pom.groupId = project.group
