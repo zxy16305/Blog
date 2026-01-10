@@ -47,5 +47,5 @@
 {% endif %}
 
 {% if theme.footer.recordNumber %}
-  <div><a href="http://www.beian.miit.gov.cn/">{{ theme.footer.recordNumber }}</a></div>
+  <div><a href="https://beian.miit.gov.cn/">{{ theme.footer.recordNumber }}</a></div>
 {% endif %}
